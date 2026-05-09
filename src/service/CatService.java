@@ -15,7 +15,6 @@ public class CatService {
     }
 
     public Cat createRandomCat(String name, int age) {
-
         int health = random.nextInt(61) + 20;
         int mood = random.nextInt(61) + 20;
         int satiety = random.nextInt(61) + 20;
@@ -24,17 +23,47 @@ public class CatService {
     }
 
     public void feedCat(Cat cat) {
-        cat.changeSatiety(15);
-        cat.changeMood(5);
+        cat.changeSatiety(getIncreaseStep(cat));
+        cat.changeMood(getIncreaseStep(cat));
     }
 
     public void playWithCat(Cat cat) {
-        cat.changeMood(15);
-        cat.changeSatiety(-10);
+        cat.changeMood(getIncreaseStep(cat));
+        cat.changeHealth(getIncreaseStep(cat));
+        cat.changeSatiety(-getDecreaseStep(cat));
     }
 
     public void healCat(Cat cat) {
-        cat.changeHealth(20);
-        cat.changeMood(-5);
+        cat.changeHealth(getIncreaseStep(cat));
+        cat.changeMood(-getDecreaseStep(cat));
+        cat.changeSatiety(-getDecreaseStep(cat));
+    }
+
+    private int getIncreaseStep(Cat cat) {
+        int age = cat.getAge();
+
+        if (age >= 1 && age <= 5) {
+            return 7;
+        }
+
+        if (age >= 6 && age <= 10) {
+            return 5;
+        }
+
+        return 4;
+    }
+
+    private int getDecreaseStep(Cat cat) {
+        int age = cat.getAge();
+
+        if (age >= 1 && age <= 5) {
+            return 3;
+        }
+
+        if (age >= 6 && age <= 10) {
+            return 5;
+        }
+
+        return 6;
     }
 }
