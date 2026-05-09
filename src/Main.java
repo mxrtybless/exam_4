@@ -65,24 +65,50 @@ public class Main {
 
     private static void feedCat() {
         Cat cat = chooseCat();
+
+        if (cat.isActionDoneToday()) {
+            System.out.println("Сегодня с этим котом уже выполняли действие.");
+            return;
+        }
+
         catService.feedCat(cat);
+        cat.setActionDoneToday(true);
         System.out.println("Вы покормили кота " + cat.getName() + ".");
     }
 
     private static void playWithCat() {
         Cat cat = chooseCat();
+
+        if (cat.isActionDoneToday()) {
+            System.out.println("Сегодня с этим котом уже выполняли действие.");
+            return;
+        }
+
         catService.playWithCat(cat);
+        cat.setActionDoneToday(true);
         System.out.println("Вы поиграли с котом " + cat.getName() + ".");
     }
 
     private static void healCat() {
         Cat cat = chooseCat();
+
+        if (cat.isActionDoneToday()) {
+            System.out.println("Сегодня с этим котом уже выполняли действие.");
+            return;
+        }
+
         catService.healCat(cat);
+        cat.setActionDoneToday(true);
         System.out.println("Вы отвели кота " + cat.getName() + " к ветеринару.");
     }
 
     private static void nextDay() {
         catService.nextDay(cats);
+
+        for (Cat cat : cats) {
+            cat.setActionDoneToday(false);
+        }
+
         System.out.println("Наступил следующий день.");
     }
 

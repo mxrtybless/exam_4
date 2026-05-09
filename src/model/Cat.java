@@ -7,6 +7,7 @@ public class Cat {
     private int health;
     private int mood;
     private int satiety;
+    private boolean actionDoneToday;
 
     public Cat(String name, int age, int health, int mood, int satiety) {
         this.name = name;
@@ -20,6 +21,7 @@ public class Cat {
         }
 
         this.age = age;
+        this.actionDoneToday = false;
     }
 
     private int validate(int value) {
@@ -48,6 +50,14 @@ public class Cat {
 
     public int getSatiety() {
         return satiety;
+    }
+
+    public boolean isActionDoneToday() {
+        return actionDoneToday;
+    }
+
+    public void setActionDoneToday(boolean actionDoneToday) {
+        this.actionDoneToday = actionDoneToday;
     }
 
     public void changeHealth(int value) {
