@@ -16,7 +16,7 @@ public class Cat {
         this.satiety = validate(satiety);
 
         if (age < 1 || age > 18) {
-            throw new IllegalArgumentException("Age must be between 1 and 18");
+            throw new IllegalArgumentException("Возраст должен быть от 1 до 18 лет");
         }
 
         this.age = age;

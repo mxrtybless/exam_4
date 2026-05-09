@@ -26,7 +26,7 @@ public class TablePrinter {
             Cat cat = cats.get(i);
 
             System.out.printf(
-                    "| %-2d | %-10s | %-7d | %-9d | %-10d | %-8d | %-15.2f |\n",
+                    "| %-2d | %-10s | %-7d | %-9d | %-10d | %-8d | %-15.0f |\n",
                     i + 1,
                     cat.getName(),
                     cat.getAge(),
