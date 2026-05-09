@@ -50,6 +50,18 @@ public class Cat {
         return satiety;
     }
 
+    public void changeHealth(int value) {
+        health = validate(health + value);
+    }
+
+    public void changeMood(int value) {
+        mood = validate(mood + value);
+    }
+
+    public void changeSatiety(int value) {
+        satiety = validate(satiety + value);
+    }
+
     @Override
     public String toString() {
         return String.format(
