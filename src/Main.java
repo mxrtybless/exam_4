@@ -27,6 +27,7 @@ public class Main {
                 case "2" -> playWithCat();
                 case "3" -> healCat();
                 case "4" -> addNewCat();
+                case "5" -> nextDay();
                 case "0" -> {
                     System.out.println("Программа завершена.");
                     return;
@@ -47,6 +48,7 @@ public class Main {
         System.out.println("2: поиграть с котом");
         System.out.println("3: лечить кота");
         System.out.println("4: завести нового питомца");
+        System.out.println("5: следующий день");
         System.out.println("0: выйти");
         System.out.print("Выберите действие: ");
     }
@@ -77,6 +79,11 @@ public class Main {
         Cat cat = chooseCat();
         catService.healCat(cat);
         System.out.println("Вы отвели кота " + cat.getName() + " к ветеринару.");
+    }
+
+    private static void nextDay() {
+        catService.nextDay(cats);
+        System.out.println("Наступил следующий день.");
     }
 
     private static Cat chooseCat() {

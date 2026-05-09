@@ -39,6 +39,18 @@ public class CatService {
         cat.changeSatiety(-getDecreaseStep(cat));
     }
 
+    public void nextDay(List<Cat> cats) {
+        for (Cat cat : cats) {
+            int satietyChange = -(random.nextInt(5) + 1);
+            int moodChange = random.nextInt(7) - 3;
+            int healthChange = random.nextInt(7) - 3;
+
+            cat.changeSatiety(satietyChange);
+            cat.changeMood(moodChange);
+            cat.changeHealth(healthChange);
+        }
+    }
+
     private int getIncreaseStep(Cat cat) {
         int age = cat.getAge();
 
